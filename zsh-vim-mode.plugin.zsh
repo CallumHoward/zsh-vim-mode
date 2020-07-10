@@ -6,6 +6,8 @@ bindkey -v
 
 #${(%):-%x}_debug () { print -r "$(date) $@" >> /tmp/zsh-debug-vim-mode.log 2>&1 }
 
+# Don't wait too long after <Esc> to see if it's an arrow / function key
+#export KEYTIMEOUT=5  # kj mapping doesn't work with this set
 
 # Special keys {{{1
 
@@ -125,8 +127,8 @@ if [[ -z $VIM_MODE_NO_DEFAULT_BINDINGS ]]; then
     vim-mode-bindkey viins vicmd -- end-of-line                        '^E'
     vim-mode-bindkey viins vicmd -- forward-char                       '^F'
     vim-mode-bindkey viins vicmd -- kill-line                          '^K'
-    vim-mode-bindkey viins vicmd -- history-incremental-search-backward '^R'
-    vim-mode-bindkey viins vicmd -- history-incremental-search-forward  '^S'
+    vim-mode-bindkey viins vicmd -- history-incremental-pattern-search-backward '^R'
+    vim-mode-bindkey viins vicmd -- history-incremental-pattern-search-forward  '^S'
     vim-mode-bindkey viins vicmd -- backward-kill-line                 '^U'
     vim-mode-bindkey viins vicmd -- backward-kill-word                 '^W'
     vim-mode-bindkey viins vicmd -- yank                               '^Y'
